@@ -1,4 +1,6 @@
+
 # Submission Dicoding "Belajar Data Analytics dengan Python"
+![image](https://github.com/mhaidar10/Submission_Analisis_Data_Python/assets/72262185/1404e1af-6533-46ad-8722-d4a7936175ca)
 
 ## Project Data Analytics
 
@@ -45,6 +47,8 @@ Kaggle Dataset brazilian-ecommerce [(Link Download)](https://www.kaggle.com/data
     ```
 2. Melakukan Akses secara Cloud (online):
    [Project Data Analytics](https://mhaidar-project-data-analytics.streamlit.app/)
+
+
 
 
 
