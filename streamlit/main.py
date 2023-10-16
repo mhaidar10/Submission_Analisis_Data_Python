@@ -175,7 +175,7 @@ ax.plot(
     daily_orders_df["order_count"],
     marker='o',
     linewidth=2,
-    color="#90CAF9"
+    color="#90CAF9",
 )
 plt.xticks(rotation=45)
 ax.tick_params(axis='y', labelsize=20)
@@ -212,7 +212,8 @@ sns.barplot(
     #marker='o', 
     #linewidth=2,
     linestyle='-',
-    color="#90CAF9"
+    color="#90CAF9",
+    
 )
 plt.xlabel('')
 plt.ylabel('Total Spend')
@@ -240,13 +241,27 @@ fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(16, 8))
 
 colors = ["#90CAF9", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"]
 
-sns.barplot(x="product_id", y="product_category_name_english", data=most_and_least_products_df.head(5), palette=colors, ax=ax[0])
+#sns.barplot(x="product_id", y="product_category_name_english", data=most_and_least_products_df.head(5),hue="product_category_name_english", palette=colors, ax=ax[0],)
+
+
+sns.barplot(
+    x="product_id", 
+    y="product_category_name_english", 
+    data=most_and_least_products_df.head(5), 
+    palette=colors, 
+    ax=ax[0],
+    )
 ax[0].set_ylabel('')
 ax[0].set_xlabel('')
 ax[0].set_title("products with the highest sales", loc="center", fontsize=18)
 ax[0].tick_params(axis ='y', labelsize=15)
 
-sns.barplot(x="product_id", y="product_category_name_english", data=most_and_least_products_df.sort_values(by="product_id", ascending=True).head(5), palette=colors, ax=ax[1])
+sns.barplot(
+    x="product_id", 
+    y="product_category_name_english", 
+    data=most_and_least_products_df.sort_values(by="product_id", ascending=True).head(5), 
+    palette=colors, 
+    ax=ax[1],)
 ax[1].set_ylabel('')
 ax[1].set_xlabel('')
 ax[1].invert_xaxis()
@@ -267,11 +282,13 @@ st.markdown(f"Rating Average  : **{df_rating_service.mean():.2f}**")
 
 
 plt.figure(figsize=(16, 8))
-sns.barplot(x=rating_service.index, 
+sns.barplot(
+            x=rating_service.index, 
             y=rating_service.values, 
             order=rating_service.index,
-            palette=["#90CAF9" if score == max_score else "#D3D3D3" for score in rating_service.index]
+            palette=["#90CAF9" if score == max_score else "#D3D3D3" for score in rating_service.index],
             #palette=["#90CAF9"]
+            
             )
 
 plt.title("Rating customers for service", fontsize=15)
@@ -299,7 +316,9 @@ with tab1:
         y="Recency", 
         x="customer_id", 
         data=rfm.sort_values(by="Recency", ascending=True).head(5), 
-        palette=colors)
+        palette=colors,
+        
+        )
     plt.title("By Recency (Day)", loc="center", fontsize=18)
     plt.ylabel('')
     plt.xlabel("customer")
@@ -309,7 +328,13 @@ with tab1:
 
 with tab2:
     plt.figure(figsize=(16, 8))
-    sns.barplot(y="Frequency", x="customer_id", data=rfm.sort_values(by="Frequency", ascending=False).head(5), palette=colors)
+    sns.barplot(
+        y="Frequency", 
+        x="customer_id", 
+        data=rfm.sort_values(by="Frequency", ascending=False).head(5), 
+        palette=colors,
+        
+        )
     plt.ylabel('')
     plt.xlabel("customer")
     plt.title("By Frequency", loc="center", fontsize=18)
@@ -319,7 +344,12 @@ with tab2:
 
 with tab3:
     plt.figure(figsize=(16, 8))
-    sns.barplot(y="Monetary", x="customer_id", data=rfm.sort_values(by="Monetary", ascending=False).head(5), palette=colors)
+    sns.barplot(
+        y="Monetary", 
+        x="customer_id", 
+        data=rfm.sort_values(by="Monetary", ascending=False).head(5), 
+        palette=colors,
+        )
     plt.ylabel('')
     plt.xlabel("customer")
     plt.title("By Monetary", loc="center", fontsize=18)
