@@ -7,7 +7,7 @@ from datetime import datetime
 import datetime as dt
 
 # Read main data
-all_df = pd.read_csv("../all_data.csv")
+all_df = pd.read_csv("all_data.csv")
 
 # change type str/obj -> datetime
 datetime_columns = ["order_approved_at"]
