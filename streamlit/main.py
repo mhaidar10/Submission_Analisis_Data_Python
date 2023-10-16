@@ -5,9 +5,11 @@ import seaborn as sns
 import streamlit as st
 from datetime import datetime
 import datetime as dt
+from pathlib import Path
 
 # Read main data
-all_df = pd.read_csv("../all_data.csv")
+csv_path = Path("../all_data.csv")
+all_df = pd.read_csv(csv_path)
 
 # change type str/obj -> datetime
 datetime_columns = ["order_approved_at"]
